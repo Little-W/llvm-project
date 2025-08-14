@@ -138,6 +138,20 @@ def ROCKET_RV64 : RISCVProcessorModel<"rocket-rv64",
 def ROCKET : RISCVTuneProcessorModel<"rocket",
                                      RocketModel>;
 
+// Alioth RV32IMFD processor
+def ALIOTH_RV32 : RISCVProcessorModel<"alioth-rv32",
+                                      AliothModel,
+                                      [Feature32Bit,
+                                       FeatureStdExtI,
+                                       FeatureStdExtZifencei,
+                                       FeatureStdExtZicsr,
+                                       FeatureStdExtM,
+                                       FeatureStdExtF,
+                                       FeatureStdExtD]>;
+
+def ALIOTH : RISCVTuneProcessorModel<"alioth",
+                                     AliothModel>;
+
 defvar SiFive7TuneFeatures = [TuneSiFive7, TuneNoDefaultUnroll,
                               TuneShortForwardBranchOpt,
                               TunePostRAScheduler];
